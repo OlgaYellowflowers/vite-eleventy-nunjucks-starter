@@ -1,0 +1,239 @@
+@use '../base/variables' as *;
+@use '../base/mixins' as *;
+
+// ============================================
+// Button Animations
+// ============================================
+@keyframes btnArrowPrimary {
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(60px);
+  }
+}
+
+@keyframes btnArrowSecondary {
+  0% {
+    opacity: 1;
+    transform: translateX(-60px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes btnTextFadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+// ============================================
+// Button Styles
+// ============================================
+.btn {
+  color: $color-black;
+  border: none;
+  border-radius: 0;
+  padding: 16px 20px;
+  display: inline-flex;
+  align-items: center;
+  gap: 40px;
+  cursor: pointer;
+  text-decoration: none;
+  line-height: 1.1;
+  font-family: $font-body;
+  font-weight: 700;
+  font-size: 22px;
+  letter-spacing: 0.44px;
+  text-transform: uppercase;
+  white-space: nowrap;
+  position: relative;
+  overflow: visible;
+  background: transparent;
+  transition: none;
+
+  // Background pseudo-element that scales independently
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #E2E2E2;
+    z-index: -1;
+    transform: scale(1);
+    transform-origin: center;
+    transition: background-color 0.35s cubic-bezier(0.6, 0, 0.2, 1),
+      transform 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  .btn-text {
+    display: block;
+    opacity: 1;
+    position: relative;
+    z-index: 1;
+    animation: btnTextFadeIn 0.4s cubic-bezier(0.6, 0, 0.2, 1) forwards;
+  }
+
+  .btn-arrow {
+    position: relative;
+    z-index: 1;
+    width: 42px;
+    height: 18px;
+    overflow: hidden;
+    display: block;
+  }
+
+  span {
+    display: block;
+  }
+
+  // Content layer stays on top
+  .btn-arrow-container {
+    position: relative;
+    z-index: 1;
+    width: 42px;
+    height: 18px;
+    overflow: hidden;
+    // Arrow color - always copper
+    color: $color-accent;
+  }
+
+  .btn-arrow-primary {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    transform: translateX(0);
+    transition: transform 0.3s cubic-bezier(0.6, 0, 0.2, 1) 0.15s;
+  }
+
+  .btn-arrow-secondary {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    transform: translateX(-60px);
+    transition: transform 0.3s cubic-bezier(0.6, 0, 0.2, 1);
+  }
+
+  // ============================================
+  // Hover and Focus States
+  // ============================================
+  &:hover,
+  &:focus {
+    &::before {
+      background-color: #E2E2E2;
+      transform: scale(0.95);
+    }
+
+    .btn-arrow-primary {
+      transform: translateX(60px);
+      transition: transform 0.3s cubic-bezier(0.6, 0, 0.2, 1);
+    }
+
+    .btn-arrow-secondary {
+      transform: translateX(0);
+      transition: transform 0.3s cubic-bezier(0.6, 0, 0.2, 1) 0.15s;
+    }
+  }
+
+  &:active {
+    &::before {
+      transform: scale(0.91);
+    }
+  }
+
+  // ============================================
+  // Button Variants
+  // ============================================
+
+  // Light variant - default light cream background, black text
+  &--light {
+    color: $color-black;
+
+    &::before {
+      background-color: #E2E2E2;
+    }
+
+    &:hover,
+    &:focus {
+      &::before {
+        background-color: #E2E2E2;
+      }
+    }
+  }
+
+  // Dark variant - black background, white text
+  &--dark {
+    color: $color-white;
+
+    &::before {
+      background-color: $color-black;
+    }
+
+    &:hover,
+    &:focus {
+      &::before {
+        background-color: $color-black;
+      }
+    }
+  }
+
+  &--blue-down {
+    color: $color-white;
+
+  .btn-arrow-primary {
+    transform: translateX(0) translateY(0);
+  }
+
+  .btn-arrow-secondary {
+    transform: translateX(0) translateY(-21px);
+  }
+
+    &::before {
+      background-color: $color-primary;
+    }
+
+    &:hover,
+    &:focus {
+      &::before {
+        background-color: $color-primary;
+      }
+    }
+
+    &:hover,
+    &:focus {
+      &::before {
+        transform: scale(0.95);
+      }
+
+      .btn-arrow-primary {
+        transform: translateY(21px) translateX(0);
+        transition: transform 0.3s cubic-bezier(0.6, 0, 0.2, 1);
+      }
+
+      .btn-arrow-secondary {
+        transform: translateY(0) translateX(0);
+        transition: transform 0.3s cubic-bezier(0.6, 0, 0.2, 1) 0.15s;
+      }
+    }
+
+  }
+}

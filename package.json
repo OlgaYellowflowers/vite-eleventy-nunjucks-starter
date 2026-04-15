@@ -1,0 +1,37 @@
+{
+  "name": "eleventy-vite-starter",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Production-grade Eleventy + Vite starter with SCSS, image optimization, ESLint, Prettier, and Luxon for date formatting",
+  "scripts": {
+    "dev": "concurrently \"npm:dev:eleventy\" \"npm:dev:vite\"",
+    "dev:eleventy": "cross-env NODE_ENV=development eleventy --serve",
+    "dev:vite": "cross-env NODE_ENV=development vite build --watch",
+    "build": "npm run build:vite && npm run build:eleventy && npm run cleanup:png",
+    "build:vite": "cross-env NODE_ENV=production vite build",
+    "build:eleventy": "cross-env NODE_ENV=production eleventy",
+    "cleanup:png": "node scripts/cleanup-png.js",
+    "lint": "eslint src/assets/js",
+    "lint:fix": "eslint src/assets/js --fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.0.0",
+    "@11ty/eleventy-img": "^4.0.0",
+    "concurrently": "^8.2.0",
+    "cross-env": "^7.0.3",
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^10.1.8",
+    "glob": "^13.0.6",
+    "luxon": "^3.7.2",
+    "prettier": "^3.2.5",
+    "sass": "^1.71.0",
+    "sharp": "^0.34.5",
+    "vite": "^5.1.0"
+  },
+  "dependencies": {
+    "gsap": "3.13.0",
+    "jquery": "^3.7.1"
+  }
+}

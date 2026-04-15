@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="robots" content="noindex, nofollow">
+  <title>{{ title }}</title>
+  <meta name="description" content="{{ description | default('') }}">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Source+Sans+Pro:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <link rel="icon" type="image/png" href="/assets/images/placeholder-image.svg" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="/assets/images/placeholder-image.svg" />
+  <link rel="shortcut icon" href="/assets/images/placeholder-image.svg" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/placeholder-image.svg" />
+  <link rel="manifest" href="/assets/images/site.webmanifest" />
+
+
+
+
+
+  <!-- PROD: Load compiled and minified files from dist -->
+  <link rel="stylesheet" href="/assets/css/main.min.css">
+  <script type="module" src="/assets/js/main.min.js"></script>
+
+</head>
+<body>
+  <div class="layout-wrapper">
+
+    {% include "components/header.njk" %}
+
+    <main class="main-content">
+      <div class="main-content-inner">
+        {{ content | safe }}
+      </div>
+    </main>
+
+  </div>
+
+  <!-- Footer - fixed at bottom -->
+  {% include "components/footer.njk" %}
+
+</body>
+</html>
+

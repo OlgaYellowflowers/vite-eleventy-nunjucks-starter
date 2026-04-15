@@ -1,0 +1,115 @@
+<section id="contact" class="contact-form section-fullwidth">
+
+
+  <div class="contact-form__inner section-normal">
+
+    <div class="contact-form__container">
+     <!-- Decorative pattern -->
+  <div class="contact-form__pattern"></div>
+
+      <!-- Left side: Contact Info -->
+      <div class="contact-form__info-section">
+        <div class="contact-form__eyebrow">lorem ipsum</div>
+
+        <div class="contact-form__info-content">
+          <div class="contact-form__heading">
+            <h2 class="contact-form__title">Lorem Ipsum Dolor Sit Amet?</h2>
+            <p class="contact-form__subtitle">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tell us your placeholder goals and we will reply with starter guidance.</p>
+          </div>
+
+
+        </div>
+      </div>
+
+      <!-- Right side: Form -->
+      <div class="contact-form__form-section">
+      <form class="contact-form__form" id="contactForm" action="/handler" method="post" novalidate>
+
+          <!-- Honeypot -->
+
+          <!-- Name and Email Row -->
+          <div class="contact-form__field-row">
+            <div class="contact-form__field">
+              <label for="contact-name" class="contact-form__label-text">Name<span class="contact-form__required">*</span></label>
+              <input type="text" id="contact-name" name="name" class="contact-form__input" required>
+              <input type="text" name="family_name" id="family_name" style="display:none !important;" tabindex="-1" autocomplete="off">
+            </div>
+            <div class="contact-form__field">
+              <label for="contact-email" class="contact-form__label-text">Email<span class="contact-form__required">*</span></label>
+              <input type="email" id="contact-email" name="email" class="contact-form__input" required>
+            </div>
+          </div>
+
+          <!-- Project Type -->
+          <!-- <div class="contact-form__field">
+            <label for="contact-project-type" class="contact-form__label-text">Project Type<span class="contact-form__required">*</span></label>
+            <select id="contact-project-type" name="projectType" class="contact-form__input" required>
+              <option value="">Select a project type...</option>
+              <option value="new-construction">New Construction</option>
+              <option value="retrofit">Retrofit & Replace</option>
+              <option value="maintenance">Service & Maintenance</option>
+              <option value="consulting">Program Management & Consulting</option>
+              <option value="other">Other</option>
+            </select>
+          </div> -->
+
+          <!-- Message -->
+          <div class="contact-form__field">
+            <label for="contact-message" class="contact-form__label-text">Message<span class="contact-form__required">*</span></label>
+            <textarea id="contact-message" name="message" class="contact-form__textarea" required></textarea>
+          </div>
+
+          <button type="submit" class="btn contact-form__button">
+            <span class="btn-text">Submit</span>
+            <svg class="btn-arrow" xmlns="http://www.w3.org/2000/svg" width="42" height="18" viewBox="0 0 42 18" fill="none">
+              <path d="M33.0223 15.4547L39.689 8.788M39.689 8.788L33.0223 2.12134M39.689 8.788H1.5" stroke="#19747E" stroke-width="3" stroke-linecap="square"></path>
+            </svg>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <dialog id="thankYouDialog" class="contact-form__thank-you-dialog">
+    <form method="dialog" class="contact-form__thankyou-dialog-content">
+      <h2>Thank You</h2>
+      <p>Lorem ipsum submitted successfully. We will be in touch shortly.</p>
+      <button id="closeDialogBtn" class="close-btn" arial-label="close">
+        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
+          <path d="M11.5147 11.5146L28.4853 28.4852" stroke="currentColor" stroke-width="4" stroke-linecap="square" stroke-linejoin="round"/>
+          <path d="M11.5147 28.4854L28.4853 11.5148" stroke="currentColor" stroke-width="4" stroke-linecap="square" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    </form>
+  </dialog>
+
+<script>
+// Form submission handler.
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("contactForm");
+  const dialog = document.getElementById("thankYouDialog");
+  const closeBtn = document.getElementById("closeDialogBtn");
+
+  // Starter behavior: no backend handler required.
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    if (dialog && typeof dialog.showModal === "function") {
+      dialog.showModal();
+    } else {
+      console.log("Form submitted successfully (dialog not supported).");
+    }
+    form.reset();
+  });
+    // --- Close dialog ---
+  if (closeBtn && dialog) {
+    closeBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      dialog.close();
+    });
+  }
+});
+</script>
+</section>
+
+
+
