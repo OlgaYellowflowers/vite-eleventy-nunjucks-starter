@@ -1,0 +1,39 @@
+@use '../base/variables' as *;
+@use '../base/mixins' as *;
+
+.features {
+  background-color: $color-white;
+  width: 100%;
+  box-sizing: border-box;
+
+  &__inner {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+
+
+    @include breakpoint('laptop', 'down') {
+      gap: 60px;
+      padding: 0;
+    }
+
+    @include breakpoint('mobile', 'down') {
+      gap: 30px;
+    }
+
+  }
+
+  &__cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+
+    @include breakpoint('laptop', 'down') {
+      gap: 16px;
+    }
+
+
+
+  }
+}

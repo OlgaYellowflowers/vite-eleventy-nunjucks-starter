@@ -1,0 +1,53 @@
+$color-text: #000000;
+
+$color-primary: #19747E;
+$color-accent: #960d54;
+$color-light: #D1E8E2;
+$color-additional: $color-accent;
+
+$color-grey: #E2E2E2;
+$color-white: #FFFFFF;
+$color-black: #000000;
+
+$font-body: 'Source Sans Pro', 'Segoe UI', sans-serif;
+$font-title: 'Playfair Display', Georgia, serif;
+
+
+$rem: 16px;
+$hairline: 0.71px;
+
+$fw-extralight: 200;
+$fw-light: 300;
+$fw-book: 400;
+$fw-medium: 500;
+$fw-semibold: 600;
+$fw-bold: 700;
+
+$transition: all 0.3s ease-in-out;
+
+$sql_animation_duration: 0.3s;
+$sql_animation_function: ease-in-out;
+$sql_animation: $sql_animation_duration $sql_animation_function;
+
+/* CSS Custom Properties */
+
+$footer-height: 100vh;
+
+
+$max-width: 1320px;
+
+$breakpoint-list: (
+  small-mobile: 0 479px,
+  mobile: 480px 767px,
+  tablet: 768px 1024px,
+  laptop: 1025px 1366px,
+  desktop: 1367px 1440px,
+  wide-desktop: 1440px 1920px,
+  extra-wide-desktop: 1921px 3000px,
+
+);
+
+
+
+
+

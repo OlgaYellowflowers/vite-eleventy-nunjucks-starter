@@ -1,0 +1,14 @@
+[build]
+publish = "dist"
+
+# Headers for proper caching and accessibility
+[[headers]]
+  for = "/assets/images/favicon/site.webmanifest"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
+    Access-Control-Allow-Origin = "*"
+
+[[headers]]
+  for = "/assets/images/favicon/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"

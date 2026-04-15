@@ -1,0 +1,181 @@
+@use '../base/variables' as *;
+@use '../base/mixins' as *;
+@use '../components/button' as *;
+
+body {
+  padding-bottom: $footer-height;
+}
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: $footer-height;
+  max-height: 100vh;
+  box-sizing: border-box;
+
+
+
+  &__container {
+    height: $footer-height;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    padding: 80px 60px 10px;
+    overflow: hidden;
+    background-image:
+      url('/assets/images/placeholder-image.svg');
+    background-position: center 13%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+
+    @include breakpoint('extra-wide-desktop', 'up') {
+      background-position: center top;
+    }
+
+    @include breakpoint('desktop', 'down') {
+      padding: 120px 60px 10px;
+    }
+
+    @include breakpoint('laptop', 'down') {
+      padding: 80px 60px 10px;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: $footer-height;
+      background: linear-gradient(0deg, $color-grey 28.93%, rgba($color-light, 0.57) 54.32%, rgba($color-light, 0) 67.45%);
+      pointer-events: none;
+      z-index: 0;
+
+      @include breakpoint('mobile', 'down') {
+        height: calc($footer-height / 2);
+      }
+
+    }
+
+    @include breakpoint('mobile', 'down') {
+      padding: 80px 20px 20px;
+      gap: 40px;
+      background-attachment: scroll;
+    }
+  }
+
+  &__content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    width: 100%;
+    max-width: 1320px;
+    margin: 0 auto;
+    height: 100%;
+
+    @include breakpoint('mobile', 'down') {
+      gap: 10px;
+    }
+  }
+
+  &__jobs-cta {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    max-width: 466px;
+    padding: 40px 0;
+  }
+
+  &__jobs-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 600;
+    font-size: 34px;
+    line-height: 1.1;
+    letter-spacing: normal;
+    color: #000;
+    margin: 0;
+    padding: 0;
+
+    @include breakpoint('mobile', 'down') {
+      font-size: 28px;
+    }
+  }
+
+  &__jobs-button {
+    @extend .btn;
+    @extend .btn--dark;
+
+    width: fit-content;
+
+    span {
+      white-space: nowrap;
+    }
+
+    @include breakpoint('small-mobile', 'down') {
+      font-size: 16px;
+      gap: 30px;
+    }
+  }
+
+  &__button-arrow {
+    width: 38px;
+    height: 13px;
+    flex-shrink: 0;
+    stroke-width: 1.5;
+    color: $color-accent;
+  }
+
+  &__logo-section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    margin-top: auto;
+
+    @include breakpoint('small-mobile', 'down') {
+      gap: 0;
+    }
+  }
+
+  &__logo {
+    width: 100%;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+
+    @include breakpoint('mobile', 'down') {
+      height: 100px;
+    }
+  }
+
+  &__logo-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+  }
+
+  &__legal-text {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 22px;
+    color: #000;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+
+  }
+}
+

@@ -1,0 +1,57 @@
+@use "sass:math";
+@use "sass:map";
+@use "sass:list";
+@use "variables" as *;
+
+@mixin breakpoint($name, $direction: 'only') {
+  $values: map.get($breakpoint-list, $name);
+
+  @if $values == null {
+    @warn "Breakpoint `#{$name}` not found in $breakpoint-list.";
+  } @else {
+    $min: list.nth($values, 1);
+
+    $max: null;
+    @if list.length($values) > 1 {
+      $max: list.nth($values, 2);
+    }
+
+    @if $direction == 'only' {
+      @if $min == 0 and $max != null {
+        @media (max-width: #{$max}) { @content; }
+      } @else if $max == null {
+        @media (min-width: #{$min}) { @content; }
+      } @else {
+        @media (min-width: #{$min}) and (max-width: #{$max}) { @content; }
+      }
+    } @else if $direction == 'up' {
+      @media (min-width: #{$min}) { @content; }
+    } @else if $direction == 'down' {
+      @if $max != null {
+        @media (max-width: #{$max}) { @content; }
+      } @else {
+        @media (min-width: #{$min}) { @content; }
+      }
+    }
+  }
+}
+
+// Reusable mixin for label styles [brackets]
+@mixin label-styles {
+  font-family: $font-body;
+  font-weight: 700;
+  font-size: 20px;
+  letter-spacing: 0.2px;
+  text-transform: uppercase;
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+
+  @include breakpoint('laptop', 'down') {
+    font-size: 18px;
+    letter-spacing: 0.18px;
+  }
+  @include breakpoint('mobile', 'down') {
+    font-size: 16px;
+  }
+}
