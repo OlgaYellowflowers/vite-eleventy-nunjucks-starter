@@ -1,0 +1,65 @@
+@use '../base/variables' as *;
+@use '../base/mixins' as *;
+
+.logo-carousel {
+    background-color: $color-white;
+    width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+
+    &__inner {
+        width: 100%;
+    }
+
+    &__track {
+        display: flex;
+        gap: 40px;
+    }
+
+    &__item {
+        flex: 0 0 auto;
+        width: auto;
+        height: 100px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 140px;
+    }
+
+    &__logo {
+        width: 100px;
+        height: 100%;
+        object-fit: contain;
+        filter: grayscale(100%);
+    }
+
+    @include breakpoint('tablet', 'down') {
+        padding: 20px;
+
+        &__track {
+            gap: 30px;
+        }
+
+        &__item {
+            height: 80px;
+            min-width: 120px;
+        }
+    }
+
+    @include breakpoint('mobile', 'down') {
+        padding: 0;
+
+        &__track {
+            gap: 20px;
+        }
+
+        &__item {
+            height: 40px;
+            min-width: 80px;
+        }
+
+        &__logo {
+            width: 50px;
+        }
+    }
+}
