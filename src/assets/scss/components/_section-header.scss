@@ -1,0 +1,231 @@
+@use '../base/variables' as *;
+@use '../base/mixins' as *;
+
+// Reusable header section for component headers
+.section-header {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+
+  @include breakpoint('tablet', 'down') {
+    gap: 24px;
+  }
+
+}
+
+// Context-specific margin adjustments
+.contact-form .section-header {
+  margin-bottom: 80px;
+
+  @include breakpoint('tablet', 'down') {
+    margin-bottom: 60px;
+  }
+
+  @include breakpoint('mobile', 'down') {
+    margin-bottom: 40px;
+  }
+
+  @include breakpoint('small-mobile', 'only') {
+    margin-bottom: 30px;
+  }
+}
+
+.section-header__label {
+  @include label-styles;
+  color: $color-black;
+  width: fit-content;
+
+  &.animate-slide-up {
+    animation: slideUp 600ms cubic-bezier(0.6, 0, 0.2, 1) forwards;
+    animation-delay: var(--animation-delay, 0ms);
+  }
+}
+
+// Default layout: 66.6% / 33.3% split
+.section-header__content {
+  display: flex;
+  gap: 60px;
+
+
+  @include breakpoint('laptop', 'down') {
+    gap: 27px;
+  }
+  @include breakpoint('tablet', 'down') {
+    flex-wrap: wrap;
+  }
+}
+
+.section-header__main {
+  font-family: $font-title;
+  font-weight: 700;
+  font-size: 96px;
+  line-height: 0.9;
+  letter-spacing: 1.92px;
+  color: $color-black;
+  margin: 0;
+  padding: 0;
+  flex: 0 0 calc(66.6% - 24px); /* 66.6% width minus gap */
+
+  @include breakpoint('laptop', 'down') {
+    flex: 0 0 50%;
+    font-size: 76px;
+    letter-spacing: 1.52px;
+  }
+
+  @include breakpoint('tablet', 'down') {
+    
+    font-size: 64px;
+    letter-spacing: 1.28px;
+  }
+
+  @include breakpoint('mobile', 'down') {
+    flex: 0 0 100%;
+    font-size: 56px;
+    letter-spacing: 1.12px;
+  }
+
+  @include breakpoint('small-mobile', 'down') {
+    font-size: 42px;
+  }
+}
+
+.section-header__main-line {
+  display: block;
+
+  &.animate-slide-left {
+    animation: slideLeft 600ms cubic-bezier(0.6, 0, 0.2, 1) forwards;
+    animation-delay: var(--animation-delay, 0ms);
+  }
+}
+
+.section-header__aside {
+  font-family: $font-body;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 1.2;
+  color: $color-black;
+  margin: 0;
+  padding: 0 0 8px;
+  flex: 0 0 calc(33.3% - 24px); /* 33.3% width minus gap */
+
+  @include breakpoint('laptop', 'down') {
+    flex: 1;
+  }
+  @include breakpoint('tablet', 'down') {
+    flex-wrap: wrap;
+  }
+
+  @include breakpoint('mobile', 'down') {
+    font-size: 16px;
+    padding: 0;
+  }
+
+  &.animate-slide-down {
+    animation: slideDown 600ms cubic-bezier(0.6, 0, 0.2, 1) forwards;
+    animation-delay: var(--animation-delay, 0ms);
+  }
+}
+
+// Modifier: 40% / 60% split for services layout
+.section-header--split-40 {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+
+  @include breakpoint('tablet', 'down') {
+    gap: 24px;
+  }
+}
+
+.section-header--split-40 .section-header__content {
+  display: flex;
+  gap: 27px;
+
+  @include breakpoint('tablet', 'down') {
+    flex-direction: column;
+  }
+}
+
+.section-header__main--small {
+  font-size: 76px;
+  letter-spacing: 1.52px;
+
+  @include breakpoint('laptop', 'down') {
+    font-size: 76px;
+    letter-spacing: 1.52px;
+  }
+
+  @include breakpoint('tablet', 'down') {
+    font-size: 64px;
+    letter-spacing: 1.28px;
+  }
+
+  @include breakpoint('mobile', 'down') {
+    font-size: 56px;
+    letter-spacing: 1.12px;
+  }
+
+  @include breakpoint('small-mobile', 'down') {
+    font-size: 42px;
+  }
+}
+
+.section-header--split-40 .section-header__main {
+  flex: 0 0 572px;
+  font-size: 76px;
+  letter-spacing: 1.52px;
+
+  @include breakpoint('laptop', 'down') {
+    flex: 0 0 50%;
+    font-size: 52px;
+    padding-right: 0;
+  }
+   @include breakpoint('tablet', 'down') {
+    flex: 0 0 100%;
+    font-size: 42px;
+  }
+}
+
+.section-header--split-40 .section-header__aside {
+  flex: 1;
+
+  @include breakpoint('tablet', 'down') {
+    flex: 0 0 100%;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

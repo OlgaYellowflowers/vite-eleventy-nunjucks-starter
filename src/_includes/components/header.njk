@@ -1,0 +1,19 @@
+<header id="main-header" class="site-header site-header--hidden">
+  <div class="header__container">
+    <h1 class="header__logo">
+      <a href="/" class="header__logo-link">
+        <img src="/assets/images/placeholder-image.svg" alt="StarterCo Logo" />
+      </a>
+    </h1>
+    
+    <!-- Hamburger Menu Button -->
+    <button class="header__menu-toggle" id="menu-toggle" data-menu-toggle aria-label="Toggle menu">
+      <svg class="header__hamburger" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M8 12H32M8 20H32M8 28H32" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+      </svg>
+    </button>
+  </div>
+</header>
+
+<!-- Main Navigation Menu -->
+{% include 'components/menu.njk' %}
